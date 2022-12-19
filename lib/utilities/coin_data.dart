@@ -47,7 +47,7 @@ class CoinData {
       //Step 1.3.1 is inside pubspec.yaml
       //Step 1.3.2 is inside constants.dart
       //TODO: 1.3.3 Inside the loop make a request to the server to get the exchange for the currency in the current loop
-      http.Response response = await http.get(Uri.parse("${kBaseURL}${crypto}/${currency}?apikey=$kAPIKey"));
+      http.Response response = await http.get(Uri.parse("$kBaseURL${crypto.split("/")[0]}/$currency?apikey=$kAPIKey"));
 
       //TODO: 1.3.4 Check if the status code of the response is 200, otherwise print the status code
       if (response.statusCode == 200) {
@@ -60,17 +60,17 @@ class CoinData {
         CoinModel model = CoinModel(
             icon: crypto.split("/")[0],
             name: crypto,
-            price: data["rates"]
+            price: data["rate"]
         );
 
         cryptoPrices.add(model);
-
-        //TODO: 1.4 At the end of the function, after the loop, return the cryptoPrices
-        return cryptoPrices;
 
       } else {
         print(response.statusCode);
       }
     }
+
+    //TODO: 1.4 At the end of the function, after the loop, return the cryptoPrices
+    return cryptoPrices;
   }
 }

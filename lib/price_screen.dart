@@ -28,7 +28,7 @@ class _PriceScreenState extends State<PriceScreen> {
       var data = await coinData.getCoinData(selectedCurrency);
 
       //TODO: 3.3 If the data was not null, call the setState function, and inside the function assign data to the coins List.
-      if (data==null){
+      if (data!=null){
         setState((){
           coinsList = data;
           return;
