@@ -59,7 +59,7 @@ class CoinData {
         //You can retrieve the icon name using "split" method. for example splitting BTC from "BTC/Bitcoin". You may google to see how split works.
         CoinModel model = CoinModel(
             icon: crypto.split("/")[0],
-            name: crypto,
+            name: crypto.split("/")[1],
             price: data["rate"]
         );
 
