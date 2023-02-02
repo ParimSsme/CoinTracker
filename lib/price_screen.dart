@@ -6,6 +6,9 @@ import 'package:intl/intl.dart';
 import 'dart:io' show Platform;
 
 class PriceScreen extends StatefulWidget {
+
+  const PriceScreen({Key? key}) : super(key: key);
+
   @override
   _PriceScreenState createState() => _PriceScreenState();
 }
@@ -16,8 +19,7 @@ class _PriceScreenState extends State<PriceScreen> {
   List<CoinModel> coinsList = [];
 
   Future getCoinsValue() async {
-    // https://medium.com/run-dart/dart-dartlang-introduction-exception-handling-f9f088906f7c
-    // https://www.tutorialspoint.com/dart_programming/dart_programming_exceptions.htm
+
     try {
 
       CoinData coinData = CoinData();
